@@ -1,0 +1,1 @@
+{"dronesAllowed": "False", "exchanges": {"HitBTC": {"maxtokens": "50", "maxtokensperdrone": "25", "URL": "wss://api.hitbtc.com/api/2/ws", "apikey": "key value", "keysecret": "secret value "}}, "tradingmode": "sim"}

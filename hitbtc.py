@@ -15,7 +15,7 @@ class HitBTC(object):
     # Multi layered candle dictionary for trend analysis
     candles = { 'EOS' :
                     { '15' :
-                          { '1' : '1', '2' : '2', '3' : '3', '4' : '4'  }
+                          { '1' : '1', '2' : '2', '3' : '3', '4' : '4', 'color' : 'color'  }
                       }
                 }
 
@@ -23,6 +23,8 @@ class HitBTC(object):
 
         # Save the reference to the calling object
         self.parent = parent
+
+        asyncio.get_event_loop().run_until_complete(self.connect())
 
     async def connect(self):
 
@@ -52,6 +54,8 @@ class HitBTC(object):
                 #Pass the JSON to the handler for handling
                 self.handler(self.jsonData)
 
+                print(self.jsonData)
+
     def handler(self, json):
 
         # Check that the params key exists in our Dict
@@ -71,9 +75,4 @@ class HitBTC(object):
         except:
             pass
 
-        print(self.ticker)
-
-# Create a HitBTC object
-h = HitBTC("test")
-# Starting the async
-asyncio.get_event_loop().run_until_complete(h.connect())
+        print(json)
